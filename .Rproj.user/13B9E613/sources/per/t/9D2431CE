@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582528314619.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1436219111",
+    "id" : "9D2431CE",
+    "lastKnownWriteTime" : 1582518301,
+    "last_content_update" : 1582518301,
+    "path" : "~/GitHub/shinydashboard/shiny/layout/ui_columnbased.R",
+    "project_path" : "shiny/layout/ui_columnbased.R",
+    "properties" : {
+        "cursorPosition" : "18,10",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
