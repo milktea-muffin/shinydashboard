@@ -1,30 +1,71 @@
-tab_tabbox <- tabItem(tabName = "tabbox",
+##----------------------------------------------------------------------------##
+## tabBox
+##----------------------------------------------------------------------------##
+tab_tabbox <- tabItem(
+  tabName = "tabbox",
+  
   fluidRow(
+    #--------------------------- 
+    # ベーシックなtabBox
     tabBox(
-      title = "First tabBox",
+      # --- options ---
       id = "tabset1", # The id lets us use input$tabset1 on the server to find the current tab
+      selected = NULL, # tabPanelのvalueを指定する
+      title = "First tabBox",
+      width = 6,
       height = "250px",
-      tabPanel("Tab1", "First tab content"),
-      tabPanel("Tab2", "Tab content 2")
+      side = "left", # or "right"
+      
+      # --- タブ ---
+      tabPanel(
+        # --- required ---
+        title = "Tab1",
+        
+        # --- options ---
+        # valueを指定しない場合、titleが入る。value = titleのまま有効にするとエラーになるのでしない
+        # value = title,
+        icon = NULL,
+        
+        # --- 本文 ---
+        "First tab content"
+      ),
+      
+      tabPanel(
+        title = "Tab2",
+        icon = NULL,
+        "Tab content 2"
+      )
     ),
+    
+    #--------------------------- 
+    # 右側から始まるtabBox
     tabBox(
-      side = "right",
-      height = "250px",
       selected = "Tab3",
+      height = "250px",
+      side = "right",
+      
       tabPanel("Tab1", "Tab content 1"),
       tabPanel("Tab2", "Tab content 2"),
       tabPanel("Tab3", "Note that when side=right, the tab order is reversed.")
     )
   ),
+  
   fluidRow(
+    #--------------------------- 
+    # タイトルにアイコンを使う
     tabBox(
-      # Title can include an icon
       title = tagList(shiny::icon("gear"), "tabBox status"),
-      tabPanel("Tab1",
-               "Currently selected tab from first box:",
-               verbatimTextOutput("tabbox_tabset1_selected")
+
+      tabPanel(
+        title = "Tab1",
+        "Currently selected tab from first box:",
+        verbatimTextOutput("tabbox_tabset1_selected")
       ),
-      tabPanel("Tab2", "Tab content 2")
+      
+      tabPanel(
+        title = "Tab2",
+        "Tab content 2"
+      )
     )
   )                          
 )

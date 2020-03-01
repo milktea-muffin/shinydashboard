@@ -1,4 +1,5 @@
-tab_rowbased <- tabItem(tabName = "rowbased",
+tab_rowbased <- tabItem(
+  tabName = "rowbased",
   fluidRow(
     box(title = "Box title", "Box content"),
     box(status = "warning", "Box content")

@@ -1,4 +1,6 @@
-# The currently selected tab from the first box
+##----------------------------------------------------------------------------##
+## tabBox
+##----------------------------------------------------------------------------##
 output[["tabbox_tabset1_selected"]] <- renderText({
-  input$tabset1
+  input[["tabset1"]]
 })

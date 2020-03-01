@@ -1,31 +1,65 @@
-tab_infobox <- tabItem(tabName = "infobox",
+##----------------------------------------------------------------------------##
+## box
+##----------------------------------------------------------------------------##
+tab_infobox <- tabItem(
+  tabName = "infobox",
+
   fluidRow(
-    # A static infoBox
+    #--------------------------- 
+    # ベーシックなinfobox
+    #--------------------------- 
+    # 静的に生成
     infoBox(
-      "New Orders",
-      10 * 2,
-      icon = icon("credit-card")
+      # --- required ---
+      title = "New Orders",
+      
+      # --- options ---
+      value = 10 * 2,
+      subtitle = NULL,
+      icon = icon("credit-card"),
+      color = "aqua",
+      width = 4,
+      href = NULL,
+      fill = FALSE
     ),
-    
-    # Dynamic infoBoxes
+
+    #--------------------------- 
+    # 動的に生成
     infoBoxOutput("infobox_progress"),
     infoBoxOutput("infobox_approval")
   ),
-  
-  # infoBoxes with fill=TRUE
+
   fluidRow(
+    #--------------------------- 
+    # fill = TRUEにしたinfoBox
+    #--------------------------- 
+    # 静的に生成
     infoBox(
-      "New Orders",
-      10 * 2,
+      # --- required ---
+      title = "New Orders",
+      
+      # --- options ---
+      value = 10 * 2,
+      subtitle = NULL,
       icon = icon("credit-card"),
-      fill = TRUE
+      color = "aqua",
+      width = 4,
+      href = NULL,
+      fill = TRUE    # <---------
     ),
+
+    #--------------------------- 
+    # 動的に生成
     infoBoxOutput("infobox_progress2"),
     infoBoxOutput("infobox_approval2")
   ),
   
   fluidRow(
-    # Clicking this will increment the progress amount
-    box(width = 4, actionButton("infobox_count", "Increment progress"))
+    #--------------------------- 
+    # カウントアップ用のボックス
+    box(
+      width = 4,
+      actionButton("infobox_count", "Increment progress")
+    )
   )                           
 )

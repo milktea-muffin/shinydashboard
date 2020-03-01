@@ -1,18 +1,39 @@
-tab_valuebox <- tabItem(tabName = "valuebox",
+##----------------------------------------------------------------------------##
+## valueBox
+##----------------------------------------------------------------------------##
+tab_valuebox <- tabItem(
+  tabName = "valuebox",
+  
   fluidRow(
-    # A static valueBox
+    #--------------------------- 
+    # ベーシックなvalueBox
+    #---------------------------
+    # 静的に生成
     valueBox(
-      10 * 2,
-      "New Orders",
-      icon = icon("credit-card")
+      # --- required ---
+      value = 10 * 2,
+      subtitle = "New Orders",
+      
+      # --- options ---
+      icon = icon("credit-card"),
+      color = "aqua",
+      width = 4,
+      href = NULL
     ),
     
-    # Dynamic valueBoxes
+    #--------------------------- 
+    # 動的に生成
     valueBoxOutput("valuebox_progress"),
     valueBoxOutput("valuebox_approval")
   ),
+  
   fluidRow(
-    # Clicking this will increment the progress amount
-    box(width = 4, actionButton("valuebox_count", "Increment progress"))
+    #--------------------------- 
+    # カウントアップ用のボックス
+    box(
+      width = 4,
+      actionButton("valuebox_count", "Increment progress")
+    )
   )
 )
+

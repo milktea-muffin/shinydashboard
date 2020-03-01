@@ -1,35 +1,52 @@
-tab_box <- tabItem(tabName = "box",
+##----------------------------------------------------------------------------##
+## box
+##----------------------------------------------------------------------------##
+tab_box <- tabItem(
+  tabName = "box",
+  
   fluidRow(
+    #--------------------------- 
+    # Basicなボックス
     box(
-      # パラメータ
-      title = "Histogram",# タイトル
+      # --- options ---
+      title = "Histogram",
+      footer = NULL,
       status = "primary", # タイトルの背景
       solidHeader = TRUE, # タイトル全体を塗りつぶすかラインにするか
+      background = NULL,
+      width = 6,
+      height = NULL,
       collapsible = TRUE, # boxを折りたためるようにするかどうか
+      collapsed = FALSE,
       
-      # 本文
+      # --- 本文 ---
       plotOutput("box_plot1", height = 250)
     ),
-    
+
+    #--------------------------- 
+    # 背景の指定
     box(
-      # パラメータ
+      # --- options ---
       title = "Histogram",
       background = "light-blue", # 背景
       collapsible = TRUE,
       
-      # 本文
+      # --- 本文 ---
       plotOutput("box_plot2", height = 250)
-    ),
+    )
   ),
+
   fluidRow(
+    #--------------------------- 
+    # statusで色を変える
     box(
-      # パラメータ
+      # --- options ---
       title = "Inputs",
       status = "warning",
       solidHeader = FALSE,
       collapsible = TRUE,
       
-      # 本文
+      # --- 本文 ---
       "Box content here",
       br(), 
       "More box content",
@@ -37,15 +54,17 @@ tab_box <- tabItem(tabName = "box",
       textInput("text", "Text input:")
     ),
     
+    #--------------------------- 
+    # 
     box(
-      # パラメータ
+      # --- options ---
       title = "Inputs",
       status = "warning",
       background = "yellow",
       solidHeader = FALSE,
       collapsible = FALSE,
       
-      # 本文
+      # --- 本文 ---
       "Box content here",
       br(),
       "More box content",

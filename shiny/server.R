@@ -1,7 +1,8 @@
 ##----------------------------------------------------------------------------##
 ##
 ##----------------------------------------------------------------------------##
-server <- function(input, output) {
+server <- function(input, output, session) {
+
   ##----------------------------------------------------------------------------##
   ## Header
   ##----------------------------------------------------------------------------##
@@ -43,20 +44,26 @@ server <- function(input, output) {
   ##----------------------------------------------------------------------------##
   ## Body
   ##----------------------------------------------------------------------------##
-  source('shiny/box/server_box.R', local = TRUE)
-  source('shiny/box/server_tabbox.R', local = TRUE)
-  source('shiny/box/server_infobox.R', local = TRUE)
-  source('shiny/box/server_valuebox.R', local = TRUE)
-  source('shiny/layout/server_rowbased.R', local = TRUE)
-  source('shiny/layout/server_columnbased.R', local = TRUE)
-  source('shiny/layout/server_mixed.R', local = TRUE)
-  source('shiny/widgets/server_button.R', local = TRUE)
-  source('shiny/widgets/server_checkbox.R', local = TRUE)
-  source('shiny/widgets/server_date.R', local = TRUE)
-  source('shiny/widgets/server_file.R', local = TRUE)
-  # source('shiny/widgets/server_numeric.R', local = TRUE)
-  # source('shiny/widgets/server_radio.R', local = TRUE)
-  # source('shiny/widgets/server_select.R', local = TRUE)
-  # source('shiny/widgets/server_slider.R', local = TRUE)
-  # source('shiny/widgets/server_text.R', local = TRUE)
+  source('./shiny/box/server_box.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/box/server_tabbox.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/box/server_infobox.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/box/server_valuebox.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/layout/server_rowbased.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/layout/server_columnbased.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/layout/server_mixed.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_button.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_checkbox.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_date.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_file.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_numeric.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_radio.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_select.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_slider.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/widgets/server_text.R', local = TRUE, encoding = 'utf-8')
+  
+  # Electron用：セッション切れたときにRを終了させる
+  # session$onSessionEnded(function(){
+  #   stopApp()
+  #   q("no")
+  # })
 }
