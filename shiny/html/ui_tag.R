@@ -1,4 +1,5 @@
-tab_html <- tabItem(tabName = "html",
+tab_html_tag <- tabItem(
+  tabName = "html_tag",
   fluidPage(
     h1("First level title"),
     h2("Second level title"),

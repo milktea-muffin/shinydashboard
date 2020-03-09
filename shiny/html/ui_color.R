@@ -1,4 +1,5 @@
-tab_color <- tabItem(tabName = "color",
+tab_html_color <- tabItem(
+  tabName = "html_color",
   fluidRow(
     box(title = "primary", width = 2, status = "primary", solidHeader = TRUE),
     box(title = "success", width = 2, status = "success", solidHeader = TRUE),

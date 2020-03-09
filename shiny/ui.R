@@ -45,6 +45,17 @@ basicBox3 <- function (title, content) {
   )
 }
 
+basicBox <- function (title, content) {
+  box(
+    title = title,
+    status = "primary",
+    solidHeader = TRUE,
+    width = NULL,
+    collapsible = TRUE,
+    content # tagList(...)
+  )
+}
+
 ##----------------------------------------------------------------------------##
 ## 
 ##----------------------------------------------------------------------------##
@@ -64,9 +75,13 @@ source('./shiny/widgets/ui_radio.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/widgets/ui_select.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/widgets/ui_slider.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/widgets/ui_text.R', local = TRUE, encoding = 'utf-8')
-source('./shiny/color/ui_color.R', local = TRUE, encoding = 'utf-8')
-source('./shiny/icon/ui_icon.R', local = TRUE, encoding = 'utf-8')
-source('./shiny/html/ui_html.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/html/ui_color.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/html/ui_icon.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/html/ui_tag.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/bio/ui_oncogrid.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/bio/ui_lollipop.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/bio/ui_datatable.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/bio/ui_venn.R', local = TRUE, encoding = 'utf-8')
 
 ##----------------------------------------------------------------------------##
 ## 
@@ -212,24 +227,19 @@ ui <- dashboardPage(
         menuSubItem("Text", tabName = "widgets_text")
       ),
       menuItem(
-        text = "HTML", 
-        tabName = "html",
-        icon = icon("th")
+        text = "HTML",
+        icon = icon("th"),
+        menuSubItem("Tag", tabName = "html_tag"),
+        menuSubItem("Color", tabName = "html_color"),
+        menuSubItem("Icon", tabName = "html_icon")
       ),
       menuItem(
-        text = "Colors", 
-        tabName = "color",
-        icon = icon("th")
-      ),
-      menuItem(
-        text = "Icons", 
-        tabName = "icon",
-        icon = icon("th")
-      ),
-      menuItem(
-        text = "References", 
-        tabName = "reference",
-        icon = icon("th")
+        text = "Bio",
+        icon = icon("th"),
+        menuSubItem("OncoGrid", tabName = "bio_oncogrid"),
+        menuSubItem("Lollipop", tabName = "bio_lollipop"),
+        menuSubItem("DataTable", tabName = "bio_datatable"),
+        menuSubItem("Venn", tabName = "bio_venn")
       ),
       menuItem(
         text = "Source code",
@@ -261,9 +271,13 @@ ui <- dashboardPage(
       tab_widgets_select,
       tab_widgets_slider,
       tab_widgets_text,
-      tab_color,
-      tab_icon,
-      tab_html
+      tab_html_tag,
+      tab_html_color,
+      tab_html_icon,
+      tab_bio_oncogrid,
+      tab_bio_lollipop,
+      tab_bio_datatable,
+      tab_bio_venn
     )
   ),
   
