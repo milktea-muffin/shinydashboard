@@ -27,7 +27,7 @@ tab_bio_lollipop <- tabItem(
       basicBox(
         title = "from CSV or TSV",
         content = tagList(
-          g3LollipopOutput("bio_lollipop_from_csv")
+          g3viz::g3LollipopOutput("bio_lollipop_from_csv")
         )
       )
     )

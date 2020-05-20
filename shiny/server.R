@@ -61,11 +61,12 @@ server <- function(input, output, session) {
   source('./shiny/widgets/server_slider.R', local = TRUE, encoding = 'utf-8')
   source('./shiny/widgets/server_text.R', local = TRUE, encoding = 'utf-8')
   source('./shiny/html/server_icon.R', local = TRUE, encoding = 'utf-8')
-  source('./shiny/bio/server_base.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/dt/server_format.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/dt/server_interactive.R', local = TRUE, encoding = 'utf-8')
   source('./shiny/bio/server_oncogrid.R', local = TRUE, encoding = 'utf-8')
   source('./shiny/bio/server_lollipop.R', local = TRUE, encoding = 'utf-8')
-  source('./shiny/bio/server_datatable.R', local = TRUE, encoding = 'utf-8')
   source('./shiny/bio/server_venn.R', local = TRUE, encoding = 'utf-8')
+  source('./shiny/qm/server_library.R', local = TRUE, encoding = 'utf-8')
   
   # Electron用：セッション切れたときにRを終了させる
   # session$onSessionEnded(function(){

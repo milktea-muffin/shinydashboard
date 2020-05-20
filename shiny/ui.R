@@ -78,10 +78,16 @@ source('./shiny/widgets/ui_text.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/html/ui_color.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/html/ui_icon.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/html/ui_tag.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/dt/ui_format.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/dt/ui_interactive.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/bio/ui_oncogrid.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/bio/ui_lollipop.R', local = TRUE, encoding = 'utf-8')
-source('./shiny/bio/ui_datatable.R', local = TRUE, encoding = 'utf-8')
 source('./shiny/bio/ui_venn.R', local = TRUE, encoding = 'utf-8')
+# source('./shiny/qm/ui_dashboard.R', local = TRUE, encoding = 'utf-8')
+source('./shiny/qm/ui_library.R', local = TRUE, encoding = 'utf-8')
+# source('./shiny/qm/ui_run.R', local = TRUE, encoding = 'utf-8')
+# source('./shiny/qm/ui_sequence.R', local = TRUE, encoding = 'utf-8')
+# source('./shiny/qm/ui_variantcall.R', local = TRUE, encoding = 'utf-8')
 
 ##----------------------------------------------------------------------------##
 ## 
@@ -199,6 +205,14 @@ ui <- dashboardPage(
         badgeColor = "green"
       ),
       menuItem(
+        text = "QM",
+        icon = icon("bar-chart-o"),
+        menuSubItem("Library", tabName = "qm_library"),
+        menuSubItem("Run", tabName = "qm_run"),
+        menuSubItem("Sequence", tabName = "qm_sequence"),
+        menuSubItem("VariantCall", tabName = "qm_variantcall")
+      ),
+      menuItem(
         text = "Box",
         icon = icon("bar-chart-o"),
         menuSubItem("box", tabName = "box"),
@@ -234,11 +248,21 @@ ui <- dashboardPage(
         menuSubItem("Icon", tabName = "html_icon")
       ),
       menuItem(
+        text = "DT",
+        icon = icon("th"),
+        menuSubItem("Format", tabName = "dt_format"),
+        menuSubItem("Interactive", tabName = "dt_interactive")
+      ),
+      menuItem(
+        text = "Plot",
+        icon = icon("th"),
+        menuSubItem("Plot", tabName = "plot_color")
+      ),
+      menuItem(
         text = "Bio",
         icon = icon("th"),
         menuSubItem("OncoGrid", tabName = "bio_oncogrid"),
         menuSubItem("Lollipop", tabName = "bio_lollipop"),
-        menuSubItem("DataTable", tabName = "bio_datatable"),
         menuSubItem("Venn", tabName = "bio_venn")
       ),
       menuItem(
@@ -274,10 +298,15 @@ ui <- dashboardPage(
       tab_html_tag,
       tab_html_color,
       tab_html_icon,
+      tab_dt_format,
+      tab_dt_interactive,
       tab_bio_oncogrid,
       tab_bio_lollipop,
-      tab_bio_datatable,
-      tab_bio_venn
+      tab_bio_venn,
+      tab_qm_library
+      # tab_qm_run,
+      # tab_qm_sequence,
+      # tab_qm_variantcall
     )
   ),
   
